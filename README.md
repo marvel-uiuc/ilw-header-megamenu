@@ -23,12 +23,15 @@ Within each `ilw-header-megamenu-section` or `ilw-header-megamenu-section linked
 - a decorative image
 - a `<div>` containing a paragraph element and a call to action (`<a>` or `<button>`). The div should contain `slot="action"`.
 
+The intention is to only use one decorative image or call to action per dropdown. You can use multiple lists. 
+
 ## Attributes
 
 `width`: the numeric pixel width where it will change to the hamburger menu. This is defaulted to 990, but may be changed if you have a ridiculous menu.
 `compact`: a boolean value that will force the menu to be a hamburger menu. Before using this option, see Accessibility Notes and Use for more information.
 `span-2`: this will allow a secondary item to span 2 columns
 `span-3`: this will allow a secondary item to span 3 columns
+`start-end`: You can add this to an image or call-to-action div to have it align to the last column.
 
 
 ## Code Examples
@@ -88,8 +91,38 @@ Within each `ilw-header-megamenu-section` or `ilw-header-megamenu-section linked
           </ul>
         </ilw-header-menu-section>
       </li>
+      <li>
+          <ilw-header-menu-section>
+              <span slot="label">Basic links, decorative image aligned right</span>
+              <ul>
+                <li><a href="/">Undergrad Admissions</a></li>
+                <li><a href="/">Graduate Admissions</a></li>
+                <li><a href="/">International Admissions</a></li>
+                <li><a href="/">Degrees</a></li>
+                <li><a href="/">Certificates</a></li>
+              </ul>
+              <img span-2="true" start-end="true" src="image.jpg" alt="">
+            </ilw-header-menu-section>
+      </li>
+        <li>
+          <ilw-header-menu-section>
+              <span slot="label">Basic links, image and call to action</span>
+              <ul>
+                <li><a href="/">Undergrad Admissions</a></li>
+                <li><a href="/">Graduate Admissions</a></li>
+                <li><a href="/">International Admissions</a></li>
+                <li><a href="/">Degrees</a></li>
+                <li><a href="/">Certificates</a></li>
+              </ul>
+              <img span-2="true" src="image.jpg" alt="">
+              <div slot="action">
+                <p> Prospective students </p>
+                <button> Visit today </button>
+              </div>
+            </ilw-header-menu-section>
+      </li>
     </ul>
-  </ilw-header-menu>
+ <ilw-header-megamenu>
 ```
 
 ## Accessibility Notes and Use
@@ -107,7 +140,7 @@ Note from Keith:
 ### ARIA
 - Each toggle button will get the attributes: `aria-haspopup="true"`, `aria-expanded="true"`, `aria-controls="parent-name-menu"` and `aria-label="Toggle parent-name submenu`. The SVG will get `aria-hidden="true"`
 - Each section will get a unique id and label, example: `id="parent-name-menu"` and `aria-label="About submenu"`
-- Items with contextual information
+- For call to action items, the paragraph will get: `id="parent-name-action-text"` and the clickable element will receive `aria-describedby="parent-name-action-text"`.
 
 ## External References
 
