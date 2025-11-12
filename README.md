@@ -19,7 +19,8 @@ The ilw-header-megamenu should contain an unordered list. Each list item can con
 - an <ilw-header-megamenu-section linked="true"> that contains an anchor and at least one unordered list of links. The anchor should contain `slot="link"`.
 
 Within each `ilw-header-megamenu-section` or `ilw-header-megamenu-section linked="true"` you can choose a combination of:
-- 1-4 unordered list of links, with up to one layer of nested links. If only one list is added and it has more than 5 items, the remaining list items will be evenly divided between the remaining columns.
+- 1-4 unordered list of links, with up to one layer of nested links. If only one list is added and it has more than 5 items, the remaining list items will be evenly divided between the remaining columns as follows:
+    - 1-10 items get divided equally between 2 columns, 11-15 items they would be divided into 3 columns (4, 4 and 3), if there were 16+ items they would be divided evenly into 4 columns (4, 4,4,4 or more)      
 - a decorative image
 - a `<div>` containing a paragraph element and a call to action (`<a>` or `<button>`). The div should contain `slot="action"`.
 
@@ -29,8 +30,8 @@ The intention is to only use one decorative image or call to action per dropdown
 
 `width`: the numeric pixel width where it will change to the hamburger menu. This is defaulted to 990, but may be changed if you have a ridiculous menu.
 `compact`: a boolean value that will force the menu to be a hamburger menu. Before using this option, see Accessibility Notes and Use for more information.
-`span-2`: this will allow a secondary item to span 2 columns
-`span-3`: this will allow a secondary item to span 3 columns
+`data-span-2`: this will allow a secondary item to span 2 columns
+`data-span-3`: this will allow a secondary item to span 3 columns
 `start-end`: You can add this to an image or call-to-action div to have it align to the last column.
 
 
@@ -40,7 +41,7 @@ The intention is to only use one decorative image or call to action per dropdown
 <ilw-header-megamenu slot="navigation">
     <ul>
     <li>
-      <ilw-header-menu-section>
+      <ilw-header-megamenu-section>
           <span slot="label">Basic links, no groups evenly divided</span>
           <ul>
             <li><a href="/">Undergrad Admissions</a></li>
@@ -54,10 +55,10 @@ The intention is to only use one decorative image or call to action per dropdown
             <li><a href="/">Student Handbook</a></li>
             <li><a href="/">Career Center</a></li>
           </ul>
-        </ilw-header-menu-section>
+        </ilw-header-megamenu-section>
        </li>
       <li>
-        <ilw-header-menu-section>
+        <ilw-header-megamenu-section>
           <span slot="label">Four columns, destinct groups with some nesting</span>
           <ul>
             <li><a href="/">Undergrad Admissions</a>
@@ -89,10 +90,10 @@ The intention is to only use one decorative image or call to action per dropdown
             <li><a href="/">Student Handbook</a></li>
             <li><a href="/">Career Center</a></li>
           </ul>
-        </ilw-header-menu-section>
+        </ilw-header-megamenu-section>
       </li>
       <li>
-          <ilw-header-menu-section>
+          <ilw-header-megamenu-section>
               <span slot="label">Basic links, decorative image aligned right</span>
               <ul>
                 <li><a href="/">Undergrad Admissions</a></li>
@@ -101,11 +102,11 @@ The intention is to only use one decorative image or call to action per dropdown
                 <li><a href="/">Degrees</a></li>
                 <li><a href="/">Certificates</a></li>
               </ul>
-              <img span-2="true" start-end="true" src="image.jpg" alt="">
-            </ilw-header-menu-section>
+              <img data-span-2="true" start-end="true" src="image.jpg" alt="">
+            </ilw-header-megamenu-section>
       </li>
         <li>
-          <ilw-header-menu-section>
+          <ilw-header-megamenu-section>
               <span slot="label">Basic links, image and call to action</span>
               <ul>
                 <li><a href="/">Undergrad Admissions</a></li>
@@ -114,12 +115,12 @@ The intention is to only use one decorative image or call to action per dropdown
                 <li><a href="/">Degrees</a></li>
                 <li><a href="/">Certificates</a></li>
               </ul>
-              <img span-2="true" src="image.jpg" alt="">
+              <img data-span-2="true" src="image.jpg" alt="">
               <div slot="action">
                 <p> Prospective students </p>
                 <button> Visit today </button>
               </div>
-            </ilw-header-menu-section>
+            </ilw-header-megamenu-section>
       </li>
     </ul>
  <ilw-header-megamenu>
