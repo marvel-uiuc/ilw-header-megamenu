@@ -126,6 +126,11 @@ The intention is to only use one decorative image or call to action per dropdown
  <ilw-header-megamenu>
 ```
 
+## Usability
+When creating menus, do not include all your links inside the menu. Just focus on the high-level links, and rely on breadcrumbs and side menus for internal links. Having a large menu system reduces usability.
+
+While it is tempting to hide your menu with the hamburger menu option, only do this if you have no other option. Hamburger menus harm usability because it hides the top-level categories and reduces the ability for users to browse to find what they want, especially for new users.
+
 ## Accessibility Notes and Use
 
 Note from Keith: 
@@ -135,8 +140,8 @@ Note from Keith:
 - While all dropdowns are closed: Use `Tab/Shift + Tab` or `left/right arrow keys` move the user across the top level navigation bar.
 - Open a dropdown: Focus on the toggle button and press `enter` or `space`.
 - Navigate an open dropdown: `Tab/Shift + Tab` or `down/up arrow keys` will go down/up the list. 
-- Close an open dropdown: Press `escape` to close and return focus to the corresponding toggle button. `Left/right arrow keys` will close the dropdown and go to the next item in the top level navigation bar.
-
+- Close an open dropdown: Click anywhere else on the screen, press `escape` to close and return focus to the corresponding toggle button or hitting the `Left/right arrow keys` will close the dropdown and go to the next item in the top level navigation bar.
+- Focus stays on the same menu item when the browser changes sizes to switch between mega and hamburger menu
 
 ### ARIA
 - Each toggle button will get the attributes: `aria-haspopup="true"`, `aria-expanded="true"`, `aria-controls="parent-name-menu"` and `aria-label="Toggle parent-name submenu`. The SVG will get `aria-hidden="true"`
