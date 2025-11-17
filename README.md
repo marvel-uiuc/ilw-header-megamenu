@@ -150,4 +150,4 @@ Note from Keith:
 
 ## External References
 
-See [ilw-header documentation](https://github.com/web-illinois/ilw-header-menu)
+See [ilw-header-menu documentation](https://github.com/web-illinois/ilw-header-menu)
