@@ -6,7 +6,7 @@ Links: **[ilw-header-megamenu in Builder](https://builder3.toolkit.illinois.edu/
 
 ## Overview
 
-An Illinois Mega Menu utilizes the standard design of the header menu, including the ability to have a link and toggle dropdown or just a static label with toggle dropdown. The difference will be the dropdown takes up the full-width of the container maxing out at 1240px, exceeding the length of the main nav bar items. Each dropdown section has a maximum of 4 columns, evenly spaced with a diving bar between each.
+An Illinois Mega Menu utilizes the standard design of the header menu, including the ability to have a link and toggle dropdown or just a static label with toggle dropdown. The difference will be the dropdown takes up the full-width of the container maxing out at 1270px, slightly exceeding the length of the main nav bar items. Each dropdown section has a maximum of 4 columns, evenly spaced with a diving bar between each.
 
 The mega menu is not suited for more than 1 layer of nested lists, if you require more, use the original ilw-header-menu with nested ilw-header-menu-sections instead (flyout menu).
 
@@ -18,22 +18,26 @@ The ilw-header-megamenu should contain an unordered list. Each list item can con
 - an <ilw-header-megamenu-section> that contains a span and at least one unordered list of links. The span should contain `slot="label"`.
 - an <ilw-header-megamenu-section linked="true"> that contains an anchor and at least one unordered list of links. The anchor should contain `slot="link"`.
 
-Within each `ilw-header-megamenu-section` or `ilw-header-megamenu-section linked="true"` you can choose a combination of:
-- 1-4 unordered list of links, with up to one layer of nested links. If only one list is added and it has more than 5 items, the remaining list items will be evenly divided between the remaining columns as follows:
-    - 1-10 items get divided equally between 2 columns, 11-15 items they would be divided into 3 columns (4, 4 and 3), if there were 16+ items they would be divided evenly into 4 columns (4, 4,4,4 or more)      
-- a decorative image
-- a `<div>` containing a paragraph element and a call to action (`<a>` or `<button>`). The div should contain `slot="action"`.
+Within each `ilw-header-megamenu-section` or `ilw-header-megamenu-section linked="true"` you can choose:
+- a basic unordered list of less than 20 links and no nesting. Each list item will be divided into groups of 5 or less. Adding more than 20 items will result in missing links.
 
-The intention is to only use one decorative image or call to action per dropdown. You can use multiple lists. 
+OR a `<div>` containing:
+- four seperated lists of links with nesting. Each new list will become it's own column. You can have as many list items as you want using this method.
+Optional secondary items (each secondary item will be placed in a new column, note that items spanning more than one column can result in wrapped columns):
+- a decorative image
+- a `<span>` containing a paragraph element and a call to action (`<a>` or `<button>`). The span should contain `slot="action"`.
+
+The intention is to only use one decorative image and/or call to action per dropdown. Repeating the same call-to-action in other dropdowns is not advised. You can use multiple lists. 
 
 ## Attributes
 
 `width`: the numeric pixel width where it will change to the hamburger menu. This is defaulted to 990, but may be changed if you have a ridiculous menu.
 `compact`: a boolean value that will force the menu to be a hamburger menu. Before using this option, see Accessibility Notes and Use for more information.
-`data-span-2`: this will allow a secondary item to span 2 columns
-`data-span-3`: this will allow a secondary item to span 3 columns
-`start-end`: You can add this to an image or call-to-action div to have it align to the last column.
 
+## Classes
+`align-right`: aligns your secondary item to the far right column
+`span-2`: allows your secondary item to span 2 columns
+`span-3`: allows your secondary item to span 3 columns
 
 ## Code Examples
 
@@ -41,8 +45,9 @@ The intention is to only use one decorative image or call to action per dropdown
 <ilw-header-megamenu slot="navigation">
     <ul>
     <li>
-      <ilw-header-megamenu-section>
-          <span slot="label">Basic links, no groups evenly divided</span>
+      <ilw-header-megamenu-section linked="true">
+          <a slot="link" href="/">Basic links, no groups evenly divided</a>
+         
           <ul>
             <li><a href="/">Undergrad Admissions</a></li>
             <li><a href="/">Graduate Admissions</a></li>
@@ -52,15 +57,15 @@ The intention is to only use one decorative image or call to action per dropdown
             <li><a href="/">Online Programs</a></li>
             <li><a href="/">Research Focus Areas</a></li>
             <li><a href="/">Find a mentor</a></li>
-            <li><a href="/">Student Handbook</a></li>
-            <li><a href="/">Career Center</a></li>
           </ul>
+         
         </ilw-header-megamenu-section>
        </li>
       <li>
         <ilw-header-megamenu-section>
-          <span slot="label">Four columns, destinct groups with some nesting</span>
-          <ul>
+          <span slot="label">Four columns, destinct groups with some nesting and a vanilla image</span>
+          <div>
+           <ul>
             <li><a href="/">Undergrad Admissions</a>
                   <ul>
                     <li><a href="/">Apply</a></li>
@@ -82,19 +87,32 @@ The intention is to only use one decorative image or call to action per dropdown
             <li><a href="/">Certificates</a></li>
             <li><a href="/">Online Programs</a></li>
           </ul>
+          <img src="https://fastly.picsum.photos/id/1025/500/400.jpg?hmac=MPFZjsU2UG1Mr3SjMkYP2F9jnhQWyatt6soxbOj0TN4" alt="">  
+
           <ul>
+            <li><a href="/">Undergrad Admissions</a></li>
+            <li><a href="/">Graduate Admissions</a></li>
+            <li><a href="/">International Admissions</a>
+            <ul>
+             <li><a href="/">Degrees</a></li>
+            <li><a href="/">Certificates</a></li>
+            <li><a href="/">Online Programs</a></li>
             <li><a href="/">Research Focus Areas</a></li>
+            
+           </ul>
+          </li>
+          
             <li><a href="/">Find a mentor</a></li>
-          </ul>
-          <ul>
             <li><a href="/">Student Handbook</a></li>
-            <li><a href="/">Career Center</a></li>
+           
           </ul>
+          </div>
         </ilw-header-megamenu-section>
       </li>
       <li>
           <ilw-header-megamenu-section>
               <span slot="label">Basic links, decorative image aligned right</span>
+              <div>
               <ul>
                 <li><a href="/">Undergrad Admissions</a></li>
                 <li><a href="/">Graduate Admissions</a></li>
@@ -102,23 +120,26 @@ The intention is to only use one decorative image or call to action per dropdown
                 <li><a href="/">Degrees</a></li>
                 <li><a href="/">Certificates</a></li>
               </ul>
-              <img data-span-2="true" start-end="true" src="image.jpg" alt="">
+              <img class="span-2 align-right" src="https://fastly.picsum.photos/id/1025/500/400.jpg?hmac=MPFZjsU2UG1Mr3SjMkYP2F9jnhQWyatt6soxbOj0TN4" alt="">  
+            </div>
             </ilw-header-megamenu-section>
       </li>
         <li>
           <ilw-header-megamenu-section>
               <span slot="label">Basic links, image and call to action</span>
-              <ul>
-                <li><a href="/">Undergrad Admissions</a></li>
-                <li><a href="/">Graduate Admissions</a></li>
-                <li><a href="/">International Admissions</a></li>
-                <li><a href="/">Degrees</a></li>
-                <li><a href="/">Certificates</a></li>
-              </ul>
-              <img data-span-2="true" src="image.jpg" alt="">
-              <div slot="action">
-                <p> Prospective students </p>
-                <button> Visit today </button>
+              <div>
+                <ul>
+                  <li><a href="/">Undergrad Admissions</a></li>
+                  <li><a href="/">Graduate Admissions</a></li>
+                  <li><a href="/">International Admissions</a></li>
+                  <li><a href="/">Degrees</a></li>
+                  <li><a href="/">Certificates</a></li>
+                </ul>
+                <img src="https://fastly.picsum.photos/id/1025/500/400.jpg?hmac=MPFZjsU2UG1Mr3SjMkYP2F9jnhQWyatt6soxbOj0TN4" alt="">
+                 <span class="span-2" slot="action">
+                  <p> Prospective students </p>
+                  <button class="ilw-button ilw-theme-orange-2">Link 1</button>
+                </span>
               </div>
             </ilw-header-megamenu-section>
       </li>

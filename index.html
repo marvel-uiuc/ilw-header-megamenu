@@ -7,6 +7,8 @@
     <title>Header Mega Menu Component</title>
     <link rel="stylesheet" href="https://cdn.brand.illinois.edu/illinois.css">
     <link rel="stylesheet" href="https://dev.toolkit.illinois.edu/ilw-global/3.0.0-alpha/ilw-global.css">
+    <link rel="stylesheet" href="//cdn.toolkit.illinois.edu/3/toolkit.css">
+    <script type="module" src="//cdn.toolkit.illinois.edu/3/toolkit.js"></script>
 
 
     <script type="module" src="src/ilw-header-megamenu.ts"></script>
@@ -23,7 +25,19 @@
 </head>
 
 <body style="margin: 0; padding: 0;">
- 
+ <ilw-header slot="header">
+  <a slot="primary-unit" href="https://wigg.illinois.edu/">Web Implementation Guidelines Group</a>
+  <a slot="site-name" href="/index.html">Component Builder Information (v3+)</a>
+  <nav slot="links" aria-label="Utility">
+    <ul>
+      <li><a href="https://builder.toolkit.illinois.edu">Old Builder</a></li>
+      <li><a href="https://wigg.illinois.edu/membership/web-components/">About Our Team</a></li>
+    </ul>
+  </nav>
+  <form slot="search" method="get" action="/search.php" role="search">
+    <input type="search" name="search" aria-labelledby="search-button">
+    <button id="search-button" type="submit">Search</button>
+  </form>
   <ilw-header-megamenu slot="navigation">
     <ul>
     <li>
@@ -39,32 +53,13 @@
             <li><a href="/">Online Programs</a></li>
             <li><a href="/">Research Focus Areas</a></li>
             <li><a href="/">Find a mentor</a></li>
-            <li><a href="/">Student Handbook</a></li>
-            <li><a href="/">International Admissions</a></li>
-            <li><a href="/">Undergrad Admissions</a></li>
-            <li><a href="/">Graduate Admissions</a></li>
-            <li><a href="/">International Admissions</a></li>
-            <li><a href="/">Degrees</a></li>
-           <li><a href="/">Undergrad Admissions</a></li>
-            <li><a href="/">Graduate Admissions</a></li>
-            <li><a href="/">International Admissions</a></li>
-            <li><a href="/">Degrees</a></li>
-            <li><a href="/">International Admissions</a></li>
-            <li><a href="/">Undergrad Admissions</a></li>
-            <li><a href="/">Graduate Admissions</a></li>
-            <li><a href="/">International Admissions</a></li>
-            <li><a href="/">Degrees</a></li>
-           <li><a href="/">Undergrad Admissions</a></li>
-            <li><a href="/">Graduate Admissions</a></li>
-            <li><a href="/">International Admissions</a></li>
-            <li><a href="/">Degrees</a></li>
           </ul>
          
         </ilw-header-megamenu-section>
        </li>
       <li>
         <ilw-header-megamenu-section>
-          <span slot="label">Four columns, destinct groups with some nesting</span>
+          <span slot="label">Four columns, destinct groups with some nesting and a vanilla image</span>
           <div>
            <ul>
             <li><a href="/">Undergrad Admissions</a>
@@ -88,10 +83,8 @@
             <li><a href="/">Certificates</a></li>
             <li><a href="/">Online Programs</a></li>
           </ul>
-          <ul>
-            <li><a href="/">Research Focus Areas</a></li>
-            <li><a href="/">Find a mentor</a></li>
-          </ul>
+          <img src="https://fastly.picsum.photos/id/1025/500/400.jpg?hmac=MPFZjsU2UG1Mr3SjMkYP2F9jnhQWyatt6soxbOj0TN4" alt="">  
+
           <ul>
             <li><a href="/">Undergrad Admissions</a></li>
             <li><a href="/">Graduate Admissions</a></li>
@@ -123,8 +116,8 @@
                 <li><a href="/">Degrees</a></li>
                 <li><a href="/">Certificates</a></li>
               </ul>
-              <img class="span-2 align-right" src="https://fastly.picsum.photos/id/1025/500/400.jpg?hmac=MPFZjsU2UG1Mr3SjMkYP2F9jnhQWyatt6soxbOj0TN4" alt="">
-              </div>
+              <img class="span-2 align-right" src="https://fastly.picsum.photos/id/1025/500/400.jpg?hmac=MPFZjsU2UG1Mr3SjMkYP2F9jnhQWyatt6soxbOj0TN4" alt="">  
+            </div>
             </ilw-header-megamenu-section>
       </li>
         <li>

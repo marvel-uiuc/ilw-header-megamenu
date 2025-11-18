@@ -53,26 +53,26 @@ ilw-header-megamenu-section {
         border-radius: 30px;
     }
 
-    .span-2{
+    img.span-2, span[action].span-2{
         grid-column: span 2;
         aspect-ratio: 16 / 9;
         justify-self: center;
     }
-     .span-3{
+     img.span-3, span[action].span-3{
         grid-column: span 3;
         aspect-ratio: 16 / 9;
         justify-self: center;
     }
 
-    .align-right{
+    img.align-right, span[action].align-right{
         grid-column: 4;
         justify-self: right;
     }
-    .span-2.align-right{
+    img.span-2.align-right, span[action].span-2.align-right{
         grid-column: 3 / span 2;
         justify-self: right;
     }
-    .span-3.align-right{
+    img.span-3.align-right, span[action].span-3.align-right{
         grid-column: 2 / span 3;
         justify-self: right;
     }
