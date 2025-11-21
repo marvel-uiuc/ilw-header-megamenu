@@ -43,48 +43,91 @@ ilw-header-megamenu-section[linked][aria-current="page"] a[slot="link"] {
 }
 
 ilw-header-megamenu-section {
+
+    
       
   img{
         margin: 30px;
-        aspect-ratio: 1 / 1;
         object-fit: cover;
-        max-width: 80%;
+        width: 90%;
         height: auto;
         border-radius: 30px;
-    }
-
-    img.span-2, span[action].span-2{
-        grid-column: span 2;
-        aspect-ratio: 16 / 9;
-        justify-self: center;
-    }
-     img.span-3, span[action].span-3{
-        grid-column: span 3;
-        aspect-ratio: 16 / 9;
-        justify-self: center;
-    }
-
-    img.align-right, span[action].align-right{
         grid-column: 4;
         justify-self: right;
     }
-    img.span-2.align-right, span[action].span-2.align-right{
+  
+    img.span-2, span[slot="action"].span-2{
         grid-column: 3 / span 2;
-        justify-self: right;
     }
-    img.span-3.align-right, span[action].span-3.align-right{
+     img.span-3, span[slot="action"].span-3{
         grid-column: 2 / span 3;
-        justify-self: right;
     }
 
-    span[slot="action"]{
-        text-align: center;
-        margin: auto;
-        font-size: 21px;
-        font-weight: bold;
-        color: var(--il-blue);
-        font-family: "Source Sans", sans-serif;
+    img.align-left, span[slot="action"].align-left{
+        grid-column: 1;
+        justify-self: left;
     }
+    img.span-2.align-left, span[slot="action"].span-2.align-left{
+        grid-column: 1 / span 2;
+                justify-self: left;
+
+    }
+    img.span-3.align-left, span[slot="action"].span-3.align-left{
+        grid-column: 1 / span 3;
+                justify-self: left;
+
+    }
+
+    span[slot="action"] {
+        margin: auto;
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    span[slot="action"] * {
+    display: none;
+    }
+
+    span[slot="action"] button:first-of-type {
+        display: block;
+        position: relative;
+        z-index: 1;
+        margin:0 auto;
+    }
+
+    span[slot="action"] p:first-of-type {
+    display: block;
+    text-align: center;
+    font-size: 21px;
+    font-weight: bold;
+    color: var(--il-blue);
+    font-family: "Source Sans", sans-serif;
+    position: relative;
+    z-index: 1;
+    }
+
+    span[slot="action"] img:first-of-type {
+        display: block;       
+        position: absolute;   
+        top: 0;
+        left: 0;
+        width: 100%;          
+        height: 85%;        
+        object-fit: cover;    
+        z-index: 0;   
+        margin: 30px 0; 
+    }
+
+    span[slot="action"].span-2 img:first-of-type, span[slot="action"].span-3 img:first-of-type {
+        width: 90%;          
+        margin: 30px; 
+    }
+
+
 
     
     ul {
@@ -98,14 +141,8 @@ ilw-header-megamenu-section {
         grid-auto-flow: column;
         max-width: 100vw;
 
-        li{
-            border-right: solid 2px var(--il-storm-85, #d5d3d3);
-        }
+      
 
-        li:nth-last-child(-n+5){
-            border: none;
-        }
-        
 
         li {
             list-style: none;
@@ -165,30 +202,40 @@ ilw-header-megamenu-section {
             }
         }
     }   
-    
+
+
+        div ul:nth-child(n + 5), div img:nth-child(n + 5), div span:nth-child(n + 5),  > ul > li > ul{
+            display: none;
+        }
+
       div{
         display: grid;
         grid-template-columns: repeat(4, minmax(0,320px));
         max-width: 100vw;
+        grid-auto-flow: column;
 
-         ul:not(:last-child){
-                border-right: solid 2px var(--il-storm-85, #d5d3d3);
+        
+        
+         ul{
+            border-left: solid 2px var(--il-storm-85, #d5d3d3);
          }
+            ul:first-child{
+            border: none;
+         }
+         
 
-         ul:last-child{
-            li{
-                border-right: none;  
-            }
-         }
+         
 
         ul{
             display: block;
+        
             li {
                 border-right: none;                        
 
                 ul{
                     margin-top: 0;
                     margin-bottom: 0;
+                    border: none;
 
                     li{
                         border-right: none;                        
@@ -273,4 +320,8 @@ ilw-header-megamenu[compact] ilw-header-megamenu-section ilw-header-megamenu-sec
 
 ul > span[action], li > span[action], ul > img, li > img, ul li:nth-child(n+21){
     display: none
+}
+
+.no-border{
+    border:none;
 }

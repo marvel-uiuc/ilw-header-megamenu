@@ -198,17 +198,6 @@ export default class MegaMenuSection extends LitElement {
 
 
     render() {
-        let isSubMenu = this.parentElement != null && this.parentElement.closest("ilw-header-megamenu-section") != null;
-        this.current = this.current || (this.getAttribute('aria-current') != null && (this.getAttribute('aria-current') === 'page' || this.getAttribute('aria-current') === 'true'));
-        var withLink = html`
-            <div class="header-link ${this.mouseover ? "highlighted" : ""} ${this.compact ? "compact" : ""} ${this.current ? "current" : ""}" @mouseover="${this.toggleMouseOver.bind(this)}"  @mouseout="${this.toggleMouseOver.bind(this)}">
-                <slot name="link"></slot>
-                <button class="arrow-only" @click=${this.handleToggleClick.bind(this)} aria-expanded=${this.expanded ? 'true' : 'false'} aria-label=${this.querySelector('a[slot="link"]')?.textContent + ' submenu'} aria-controls="items">
-                    ${this.renderArrow()}
-                </button>
-            </div>
-        `;
-
         const actionSpan = this.querySelector('span[slot="action"]');
         let actionId: string | null = null;
         if (actionSpan) {
@@ -222,6 +211,33 @@ export default class MegaMenuSection extends LitElement {
                 link.setAttribute('aria-labelledby', actionId);
             }
         }
+
+        let lists = document.querySelectorAll('ilw-header-megamenu-section > ul > li')
+        let listitems = lists.length;
+        const groupsoffive = Math.floor(listitems / 5);
+        let columnend = groupsoffive * 5;
+            
+        columnend = Math.min(columnend, 15);
+
+        lists.forEach((list, index) =>{
+            const position = index + 1;
+            if (position <= columnend){
+                list.style.borderRight = 'solid 2px var(--il-storm-85, #d5d3d3)';
+            }
+        })
+
+
+
+        let isSubMenu = this.parentElement != null && this.parentElement.closest("ilw-header-megamenu-section") != null;
+                this.current = this.current || (this.getAttribute('aria-current') != null && (this.getAttribute('aria-current') === 'page' || this.getAttribute('aria-current') === 'true'));
+                var withLink = html`
+                    <div class="header-link ${this.mouseover ? "highlighted" : ""} ${this.compact ? "compact" : ""} ${this.current ? "current" : ""}" @mouseover="${this.toggleMouseOver.bind(this)}"  @mouseout="${this.toggleMouseOver.bind(this)}">
+                        <slot name="link"></slot>
+                        <button class="arrow-only" @click=${this.handleToggleClick.bind(this)} aria-expanded=${this.expanded ? 'true' : 'false'} aria-label=${this.querySelector('a[slot="link"]')?.textContent + ' submenu'} aria-controls="items">
+                            ${this.renderArrow()}
+                        </button>
+                    </div>
+                `;
         
 
         var withoutLink = html`
