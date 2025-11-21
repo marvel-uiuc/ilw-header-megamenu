@@ -161,7 +161,7 @@ The intention is to only use one secondary item, a decorative image or call-to-a
                   <li><a href="/">Find a mentor</a></li>
                   <li><a href="/">Student Handbook</a></li>
                 </ul>
-              <img src="https://fastly.picsum.photos/id/1025/500/400.jpg?hmac=MPFZjsU2UG1Mr3SjMkYP2F9jnhQWyatt6soxbOj0TN4" alt="">  
+              <img class="align-left" src="https://fastly.picsum.photos/id/1025/500/400.jpg?hmac=MPFZjsU2UG1Mr3SjMkYP2F9jnhQWyatt6soxbOj0TN4" alt="">  
             </div>
             </ilw-header-megamenu-section>
       </li>
